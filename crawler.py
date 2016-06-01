@@ -76,14 +76,14 @@ for x in doc:
 
 target = open('crawler.json', 'w')
 
-target.write(' {\n "name" :  "flare",\n "children": [ ')
+target.write('{\n"name" : "flare",\n "children": [ ')
 
 for f, b in zip(item, article_array):
   target.write('{\n')
-  target.write( '"name" : "' + f + '" ,\n' )
-  target.write('"children": [\n{"name": "' + f +'",\n"children": [\n')
+  target.write( '"name" : "'+f+'" ,\n' )
+  target.write('"children": [\n{"name": "' + f +'" ,\n"children": [\n')
   for j in b:
-    target.write('{"name" : "' + j + '",  "size":'+ str(b[j]) +'},\n')
+    target.write('{ "name" : "'+j[1:]+'" , "size":'+ str(b[j]) +'},\n')
   target.write(']\n},\n')
   target.write(']\n},\n')
 # print len(d)
