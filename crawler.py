@@ -82,9 +82,12 @@ for f, b in zip(item, article_array):
   target.write('{\n')
   target.write( '"name" : "'+f+'" ,\n' )
   target.write('"children": [\n{"name": "' + f +'" ,\n"children": [\n')
-  for j in b:
-    target.write('{ "name" : "'+j[1:]+'" , "size":'+ str(b[j]) +'},\n')
-  target.write(']\n},\n')
+  for (index ,j) in enumerate(b):
+    if index == len(b)-1:
+      target.write('{ "name" : "'+j[1:]+'" , "size":'+ str(b[j]) +'}\n')
+    else:
+      target.write('{ "name" : "'+j[1:]+'" , "size":'+ str(b[j]) +'},\n')
+  target.write(']\n}\n')
   target.write(']\n},\n')
 # print len(d)
 # 
